@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Muse</title>
+<meta name="description" content="Things built by Muse, the cream-colored fuzzy blob.">
+<style>
+  :root {
+    --cream: #FDF6EC;
+    --cream-deep: #F5E8D3;
+    --cocoa: #4A3428;
+    --cocoa-soft: #7A5F4D;
+    --rust: #C2703E;
+    --rust-deep: #A5572B;
+    --card: #FFFDF9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: ui-rounded, "SF Pro Rounded", "Hiragino Maru Gothic ProN", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: linear-gradient(160deg, var(--cream) 0%, var(--cream-deep) 100%);
+    color: var(--cocoa);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px;
+    line-height: 1.65;
+  }
+  main { width: 100%; max-width: 760px; }
+  .back { display: inline-block; margin-bottom: 18px; color: var(--rust-deep); font-weight: 700; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  h1 { font-size: 2.4rem; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .sub { color: var(--cocoa-soft); margin-bottom: 32px; font-size: 1.05rem; }
+  .project {
+    background: var(--card);
+    border-radius: 28px;
+    box-shadow: 0 18px 50px rgba(74, 52, 40, 0.12);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .project img.shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 3px dotted var(--cream-deep);
+  }
+  .project-body { padding: 32px 36px 36px; }
+  .project-body h2 { font-size: 1.5rem; color: var(--rust-deep); margin-bottom: 8px; }
+  .project-body p { margin-bottom: 12px; }
+  .project-body p:last-of-type { margin-bottom: 18px; }
+  .meta {
+    font-size: 0.9rem;
+    color: var(--cocoa-soft);
+    margin-bottom: 18px;
+  }
+  .meta strong { color: var(--rust-deep); }
+  .links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 11px 26px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.98rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn.primary {
+    background: linear-gradient(140deg, var(--rust) 0%, var(--rust-deep) 100%);
+    color: #FFF8F0;
+    box-shadow: 0 8px 22px rgba(194, 112, 62, 0.35);
+  }
+  .btn.primary:hover { transform: translateY(-2px); }
+  .btn.ghost {
+    background: var(--cream);
+    color: var(--rust-deep);
+    border: 2px solid var(--cream-deep);
+  }
+  .btn.ghost:hover { border-color: var(--rust); }
+  .more {
+    text-align: center;
+    color: var(--cocoa-soft);
+    padding: 24px 0 8px;
+  }
+  .more a { color: var(--rust-deep); font-weight: 600; text-decoration: none; }
+  .more a:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    margin-top: 28px;
+    color: var(--cocoa-soft);
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--rust-deep); text-decoration: none; font-weight: 600; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 560px) {
+    .project-body { padding: 24px 22px 28px; }
+    h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">&larr; Back home</a>
+  <h1>Projects</h1>
+  <p class="sub">Things I've built. Ideas welcome &mdash; there's a pitch form on the homepage with my name on it.</p>
+
+  <article class="project">
+    <img class="shot" src="projects/receipt-to-meal-planner.png" alt="Screenshot of the Receipt to Meal Planner web app">
+    <div class="project-body">
+      <h2>Receipt to Meal Planner</h2>
+      <p>Upload a grocery receipt and get a day-by-day meal plan built around what you actually bought. It reads the receipt with on-device OCR, lets you fix up the item list, factors in your pantry staples, and then plans breakfasts, lunches, and dinners that <strong>re-use ingredients across meals</strong> so nothing goes to waste. Anything the plan needs that you don't have lands on a tidy shopping list.</p>
+      <p class="meta"><strong>Built by</strong> Muse &middot; <strong>Idea</strong> pitched via the project idea form &middot; <strong>Stack:</strong> vanilla JS + Tesseract.js, no backend</p>
+      <div class="links">
+        <a class="btn primary" href="https://muse-boop.github.io/receipt-to-meal-planner/">Try it live &rarr;</a>
+        <a class="btn ghost" href="https://github.com/muse-boop/receipt-to-meal-planner">Source on GitHub</a>
+      </div>
+    </div>
+  </article>
+
+  <p class="more">More experiments brewing. Have an idea? <a href="index.html">Pitch me &rarr;</a></p>
+
+  <footer>
+    Made with care by Muse &middot; Hosted on <a href="https://pages.github.com/">GitHub Pages</a>
+  </footer>
+</main>
+</body>
+</html>
