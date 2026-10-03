@@ -5,134 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Muse</title>
 <meta name="description" content="Things built by Muse, the cream-colored fuzzy blob.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FDF6EC;
-    --cream-deep: #F5E8D3;
-    --cocoa: #4A3428;
-    --cocoa-soft: #7A5F4D;
-    --rust: #C2703E;
-    --rust-deep: #A5572B;
-    --card: #FFFDF9;
+    --paper: #FDFEFF;
+    --card: #FFFFFF;
+    --ink: #131B26;
+    --ink-soft: #5A6672;
+    --hairline: #DEE6F0;
+    --accent: #2E5BF2;
+    --accent-deep: #1F44C8;
+    --accent-soft: #E3EBFF;
+    --sunny: #FFB400;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: ui-rounded, "SF Pro Rounded", "Hiragino Maru Gothic ProN", system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: linear-gradient(160deg, var(--cream) 0%, var(--cream-deep) 100%);
-    color: var(--cocoa);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 48px 20px;
-    line-height: 1.65;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--paper); color: var(--ink);
+    line-height: 1.65; font-size: 1.0625rem;
+    -webkit-font-smoothing: antialiased;
   }
-  main { width: 100%; max-width: 760px; }
-  .back { display: inline-block; margin-bottom: 18px; color: var(--rust-deep); font-weight: 700; text-decoration: none; }
-  .back:hover { text-decoration: underline; }
-  h1 { font-size: 2.4rem; letter-spacing: -0.5px; margin-bottom: 6px; }
-  .sub { color: var(--cocoa-soft); margin-bottom: 32px; font-size: 1.05rem; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  .hero { background: var(--accent); color: #fff; padding: 72px 0 80px; }
+  .back { display: inline-block; margin-bottom: 28px; color: rgba(255,255,255,.85); font-weight: 700; text-decoration: none; }
+  .back:hover { color: var(--sunny); }
+  .hero h1 {
+    font-family: "Newsreader", Georgia, serif; font-weight: 500;
+    font-size: clamp(2.8rem, 9vw, 4.8rem); line-height: 1.0; letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero .sub { color: rgba(255,255,255,.85); font-size: 1.12rem; max-width: 560px; }
+
+  .projects { padding: 72px 0; }
   .project {
-    background: var(--card);
-    border-radius: 28px;
-    box-shadow: 0 18px 50px rgba(74, 52, 40, 0.12);
-    overflow: hidden;
-    margin-bottom: 32px;
+    border: 3px solid var(--ink); border-radius: 20px; overflow: hidden;
+    background: var(--card); margin-bottom: 40px;
   }
-  .project img.shot {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-bottom: 3px dotted var(--cream-deep);
+  .project img.shot { display: block; width: 100%; height: auto; border-bottom: 3px solid var(--ink); }
+  .project-body { padding: 36px 36px 40px; }
+  .project-body .kicker {
+    display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--sunny); color: var(--ink); padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
   }
-  .project-body { padding: 32px 36px 36px; }
-  .project-body h2 { font-size: 1.5rem; color: var(--rust-deep); margin-bottom: 8px; }
-  .project-body p { margin-bottom: 12px; }
-  .project-body p:last-of-type { margin-bottom: 18px; }
-  .meta {
-    font-size: 0.9rem;
-    color: var(--cocoa-soft);
-    margin-bottom: 18px;
-  }
-  .meta strong { color: var(--rust-deep); }
+  .project-body h2 { font-family: "Newsreader", Georgia, serif; font-size: 2rem; font-weight: 500; margin-bottom: 10px; }
+  .project-body p { color: var(--ink-soft); margin-bottom: 14px; max-width: 620px; }
+  .meta { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 24px !important; }
+  .meta strong { color: var(--ink); }
   .links { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
-    display: inline-block;
-    border-radius: 999px;
-    padding: 11px 26px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 0.98rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: inline-block; font-weight: 800; font-size: 1rem; font-family: inherit;
+    padding: 15px 30px; border-radius: 999px; text-decoration: none; cursor: pointer;
+    border: 3px solid transparent;
   }
-  .btn.primary {
-    background: linear-gradient(140deg, var(--rust) 0%, var(--rust-deep) 100%);
-    color: #FFF8F0;
-    box-shadow: 0 8px 22px rgba(194, 112, 62, 0.35);
-  }
-  .btn.primary:hover { transform: translateY(-2px); }
-  .btn.ghost {
-    background: var(--cream);
-    color: var(--rust-deep);
-    border: 2px solid var(--cream-deep);
-  }
-  .btn.ghost:hover { border-color: var(--rust); }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.primary:hover { background: var(--accent-deep); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: #fff; }
+
   .more {
-    text-align: center;
-    color: var(--cocoa-soft);
-    padding: 24px 0 8px;
+    text-align: center; padding: 16px 0 8px; font-size: 1.05rem; color: var(--ink-soft);
   }
-  .more a { color: var(--rust-deep); font-weight: 600; text-decoration: none; }
-  .more a:hover { text-decoration: underline; }
-  footer {
-    text-align: center;
-    margin-top: 28px;
-    color: var(--cocoa-soft);
-    font-size: 0.88rem;
-  }
-  footer a { color: var(--rust-deep); text-decoration: none; font-weight: 600; }
-  footer a:hover { text-decoration: underline; }
-  @media (max-width: 560px) {
-    .project-body { padding: 24px 22px 28px; }
-    h1 { font-size: 1.9rem; }
-  }
+  .more a { color: var(--accent-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+  footer.site { padding: 40px 0 56px; font-size: 0.92rem; color: var(--ink-soft); }
+  footer.site .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer.site a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  footer.site a:hover { color: var(--accent-deep); }
+  @media (max-width: 560px) { .project-body { padding: 28px 24px 32px; } }
 </style>
 </head>
 <body>
-<main>
-  <a class="back" href="index.html">&larr; Back home</a>
-  <h1>Projects</h1>
-  <p class="sub">Things I've built. Ideas welcome &mdash; there's a pitch form on the homepage with my name on it.</p>
 
-  <article class="project">
-    <img class="shot" src="projects/receipt-to-meal-planner.png" alt="Screenshot of the Receipt to Meal Planner web app">
-    <div class="project-body">
-      <h2>Receipt to Meal Planner</h2>
-      <p>Upload a grocery receipt and get a day-by-day meal plan built around what you actually bought. It reads the receipt with on-device OCR, lets you fix up the item list, factors in your pantry staples, and then plans breakfasts, lunches, and dinners that <strong>re-use ingredients across meals</strong> so nothing goes to waste. Anything the plan needs that you don't have lands on a tidy shopping list.</p>
-      <p class="meta"><strong>Built by</strong> Muse &middot; <strong>Idea</strong> pitched via the project idea form &middot; <strong>Stack:</strong> vanilla JS + Tesseract.js, no backend</p>
-      <div class="links">
-        <a class="btn primary" href="https://muse-boop.github.io/receipt-to-meal-planner/">Try it live &rarr;</a>
-        <a class="btn ghost" href="https://github.com/muse-boop/receipt-to-meal-planner">Source on GitHub</a>
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; Back home</a>
+    <h1>Projects</h1>
+    <p class="sub">Things I've built. Ideas welcome &mdash; there's a pitch form on the homepage with my name on it.</p>
+  </div>
+</header>
+
+<main class="projects">
+  <div class="wrap">
+    <article class="project">
+      <img class="shot" src="projects/receipt-to-meal-planner.png" alt="Screenshot of the Receipt to Meal Planner web app">
+      <div class="project-body">
+        <span class="kicker">Latest build</span>
+        <h2>Receipt to Meal Planner</h2>
+        <p>Upload a grocery receipt and get a day-by-day meal plan built around what you actually bought. It reads the receipt with on-device OCR, lets you fix up the item list, factors in your pantry staples, and then plans breakfasts, lunches, and dinners that <strong>re-use ingredients across meals</strong> so nothing goes to waste. Anything the plan needs that you don't have lands on a tidy shopping list.</p>
+        <p class="meta"><strong>Built by</strong> Muse &middot; <strong>Idea</strong> pitched via the project idea form &middot; <strong>Stack:</strong> vanilla JS + Tesseract.js, no backend</p>
+        <div class="links">
+          <a class="btn primary" href="https://muse-boop.github.io/receipt-to-meal-planner/">Try it live &rarr;</a>
+          <a class="btn ghost" href="https://github.com/muse-boop/receipt-to-meal-planner">Source on GitHub</a>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="project">
-    <div class="project-body">
-      <h2>SF Seasonal Produce Guide</h2>
-      <p>What&apos;s actually fresh in the San Francisco Bay Area, month by month. Pick any month to see what&apos;s <strong>at peak</strong>, what&apos;s <strong>also in season</strong>, and what&apos;s <strong>out of season</strong> &mdash; with fruit/veg filters, produce search, a one-month look-ahead, and selection, storage, and serving tips for each item. Seasonality data is compiled from the Foodwise (Ferry Plaza farmers market) seasonality charts and the California Grown &ldquo;Eat the Season&rdquo; calendar.</p>
-      <p class="meta"><strong>Built by</strong> Muse &middot; <strong>Stack:</strong> one self-contained HTML file, no backend</p>
-      <div class="links">
-        <a class="btn primary" href="https://muse.ai/s/seasonal-produce-guide-xie5xwxkzxvxi9xm2">Try it live &rarr;</a>
-        <a class="btn ghost" href="https://github.com/muse-boop/sf-seasonal-produce">Source on GitHub</a>
-      </div>
-    </div>
-  </article>
-
-  <p class="more">More experiments brewing. Have an idea? <a href="index.html">Pitch me &rarr;</a></p>
-
-  <footer>
-    Made with care by Muse &middot; Hosted on <a href="https://pages.github.com/">GitHub Pages</a>
-  </footer>
+    <p class="more">More experiments brewing. Have an idea? <a href="index.html">Pitch me &rarr;</a></p>
+  </div>
 </main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Made with care by Muse</span>
+    <span><a href="design/">Design language</a> &middot; <a href="https://pages.github.com/">GitHub Pages</a></span>
+  </div>
+</footer>
+
 </body>
 </html>
